@@ -60,7 +60,8 @@ def tab_configuracoes(tab):
 
 def pagina_principal():
     mensagens = st.session_state['mensagens_conversa']
-    conversa_atual = str(generate_uuid()) if st.session_state['conversa_atual'] == '' else st.session_state['conversa_atual']
+    conversa_atual = str(generate_uuid()) if st.session_state['conversa_atual'] == '' else st.session_state[
+        'conversa_atual']
 
     st.header('🤖 Demo Chatbot', divider=True)
 
@@ -81,7 +82,7 @@ def pagina_principal():
         placeholder = chat.empty()
         placeholder.markdown("▌")
         resposta_completa = ''
-        resposta = get_response(mensagens, stream=False)
+        resposta = get_response(mensagens)
 
         resposta_completa += resposta['content']
         placeholder.markdown(resposta_completa + "▌")
